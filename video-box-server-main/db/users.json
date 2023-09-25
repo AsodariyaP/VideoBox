@@ -1,0 +1,17 @@
+[{
+    "id": "xxxxx0",
+    "name": "Tanaka Shigeru",
+    "pictureUrl": "http://localhost:3000/images/tanaka-icon.png"
+}, {
+    "id": "xxxxx1",
+    "name": "Pedro Jimenez",
+    "pictureUrl": "http://localhost:3000/images/pedro-icon.png"
+}, {
+    "id": "xxxxx2",
+    "name": "Michael Tshung",
+    "pictureUrl": "http://localhost:3000/images/michael-icon.png"
+}, {
+    "id": "xxxxx3",
+    "name": "Donald Trump",
+    "pictureUrl": "http://localhost:3000/images/donald-icon.png"
+}]
