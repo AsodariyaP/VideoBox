@@ -1,0 +1,76 @@
+<div class="page-main">
+	<div class="container-fluid container-body">
+		<div class="row justify-content-end mt32">
+			<div class="layout-button col-auto">
+				<div class="view" title="grid view" [ngClass]="{active: selectedView === 'grid'}"
+					(click)="changeView('grid')">
+					<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M1.5 0C0.947715 0 0.5 0.447715 0.5 1V8C0.5 8.55229 0.947715 9 1.5 9H8.5C9.05229 9 9.5 8.55229 9.5 8V1C9.5 0.447715 9.05229 0 8.5 0H1.5ZM1.5 11C0.947715 11 0.5 11.4477 0.5 12V19C0.5 19.5523 0.947715 20 1.5 20H8.5C9.05229 20 9.5 19.5523 9.5 19V12C9.5 11.4477 9.05229 11 8.5 11H1.5ZM11.5 1C11.5 0.447715 11.9477 0 12.5 0H19.5C20.0523 0 20.5 0.447715 20.5 1V8C20.5 8.55229 20.0523 9 19.5 9H12.5C11.9477 9 11.5 8.55229 11.5 8V1ZM12.5 11C11.9477 11 11.5 11.4477 11.5 12V19C11.5 19.5523 11.9477 20 12.5 20H19.5C20.0523 20 20.5 19.5523 20.5 19V12C20.5 11.4477 20.0523 11 19.5 11H12.5Z"
+							fill="#171717" />
+					</svg>
+				</div>
+				<div class="view" title="list view" [ngClass]="{active: selectedView === 'list'}"
+					(click)="changeView('list')">
+					<svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M1.50195 0C0.949668 0 0.501953 0.447715 0.501953 1V3C0.501953 3.55228 0.949668 4 1.50195 4H3.50195C4.05424 4 4.50195 3.55228 4.50195 3V1C4.50195 0.447715 4.05424 0 3.50195 0H1.50195ZM7.49805 0C6.94576 0 6.49805 0.447715 6.49805 1V3C6.49805 3.55228 6.94576 4 7.49805 4H21.498C22.0503 4 22.498 3.55228 22.498 3V1C22.498 0.447715 22.0503 0 21.498 0H7.49805ZM7.49805 7C6.94576 7 6.49805 7.44772 6.49805 8V10C6.49805 10.5523 6.94576 11 7.49805 11H21.498C22.0503 11 22.498 10.5523 22.498 10V8C22.498 7.44772 22.0503 7 21.498 7H7.49805ZM6.49805 15C6.49805 14.4477 6.94576 14 7.49805 14H21.498C22.0503 14 22.498 14.4477 22.498 15V17C22.498 17.5523 22.0503 18 21.498 18H7.49805C6.94576 18 6.49805 17.5523 6.49805 17V15ZM0.509766 8C0.509766 7.44772 0.957481 7 1.50977 7H3.50977C4.06205 7 4.50977 7.44772 4.50977 8V10C4.50977 10.5523 4.06205 11 3.50977 11H1.50977C0.957481 11 0.509766 10.5523 0.509766 10V8ZM1.52539 14C0.973106 14 0.525391 14.4477 0.525391 15V17C0.525391 17.5523 0.973106 18 1.52539 18H3.52539C4.07768 18 4.52539 17.5523 4.52539 17V15C4.52539 14.4477 4.07768 14 3.52539 14H1.52539Z"
+							fill="#171717" />
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div class="row mt32">
+			<ng-container *ngIf="selectedView === 'grid'">
+				<div class="col-12 col-md-6 col-lg-4" *ngFor="let video of videos">
+					<div class="video-grid mb-3" (click)="goToDetails(video.id)">
+						<div class="ratio ratio-16x9 cursor-pointer">
+							<img src="{{video.previewUrl}}" alt="preview_img">
+						</div>
+						<div class="video-details">
+							<div class="title">{{video.title}}</div>
+							<div class="mt-1 d-flex align-items-center justify-content-between">
+								<div class="date">{{video.createdDate | date:'dd/MM/yyyy'}}</div>
+								<div class="d-flex align-items-center">
+									<div class="avatar me-2"><img src="{{video.author?.pictureUrl}}"
+											class="img-fluid" />
+									</div>
+									<div class="name">{{video.author?.name}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ng-container>
+
+			<ng-container *ngIf="selectedView === 'list'">
+				<div class="video-list mb-3" *ngFor="let video of videos">
+					<div class="row align-items-center video-details flex-wrap" (click)="goToDetails(video.id)">
+						<div class="col-auto col-md-auto">
+							<div class="video">
+								<div class="ratio ratio-16x9">
+									<img class="img-preview" src="{{video.previewUrl}}" alt="preview_img">
+								</div>
+							</div>
+						</div>
+						<div class="col-8 col-md">
+							<div class="row g-0 mx-0 flex-wrap align-items-center">
+								<div class="col-12 col-md-8 col-lg-9 title mb-2 mb-md-0">{{video.title}}</div>
+								<div class="col-12 col-md-4 col-lg-3 d-flex">
+									<div class="col-auto date">{{video.createdDate | date:'dd/MM/yyyy'}}</div>
+									<div class="col-8">
+										<div class="d-flex align-items-center justify-content-end">
+											<div class="avatar me-2"><img src="{{video.author?.pictureUrl}}" class="img-fluid" />
+											</div>
+											<div class="name">{{video.author?.name}}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ng-container>
+		</div>
+	</div>
+</div>
