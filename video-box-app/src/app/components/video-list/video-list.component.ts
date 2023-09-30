@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from '../../services/video.service'
 import { Video, View } from '../../models/video.model';
-import { NavigationStart, Router, ActivatedRoute } from '@angular/router'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-video-list',
@@ -11,11 +11,8 @@ import { NavigationStart, Router, ActivatedRoute } from '@angular/router'
 
 export class VideoListComponent implements OnInit {
 
-
-
-  
   videos: Array<Video> = [];
-  selectedView: string = 'grid';
+  selectedView: string = View.grid;
 
   constructor(private router: Router, private videoListService: VideoService) { }
 
@@ -23,12 +20,17 @@ export class VideoListComponent implements OnInit {
     this.getVideos();
   }
 
+  // Get videos from db 
   getVideos(): void {
-    this.videoListService.getVideos().subscribe((res: Array<Video>) => {
-      this.videos = res;
+    this.videoListService.getVideos().subscribe({
+      next: (res: Array<Video>) => {
+        this.videos = res;
+      },
+      error: (e) => console.error(e)
     });
   }
 
+  // Change the view mode for display videos 
   changeView(type: string): void {
     if (type === View.grid) {
       this.selectedView = View.grid;
@@ -37,7 +39,8 @@ export class VideoListComponent implements OnInit {
     }
   }
 
-  goToDetails(videoId: string) {
+  // Navigate to video details page
+  goToDetails(videoId: string | undefined) {
     this.router.navigate(['/videos', videoId]);
   }
 }

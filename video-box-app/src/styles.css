@@ -1,18 +1,10 @@
 /* You can add global styles to this file, and also import other style files  */
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('../src/assets/fonts/Helvetica Neue Regular.otf') format('otf');
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100;
-}
-
-/* @font-face {
     font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueBlackCond.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueBlackCond.woff') format('woff');
-    font-weight: 900;
+    src: url('../src/assets/fonts/HelveticaNeueMedium.woff2') format('woff2'),
+        url('../src/assets/fonts/HelveticaNeueMedium.woff') format('woff');
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
@@ -28,82 +20,19 @@
 
 @font-face {
     font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueLight.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueLight.woff') format('woff');
-    font-weight: 300;
+    src: url('../src/assets/fonts/HelveticaNeueRegular.woff2') format('woff2'),
+        url('../src/assets/fonts/HelveticaNeueRegular.woff') format('woff');
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueMedium.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueMedium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueItalic.woff2') format('woff2'),
-        url('../fonts/HelveticaNeueItalic.woff') format('woff');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueLight.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueLight.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueThin.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueThin.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueMedium.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueMedium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueBold.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueBold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueHeavy.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueHeavy.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-} */
 
 body {
     /* update 27/9/2023 */
     padding: 0;
     margin: 0;
     font-family: 'Helvetica Neue';
-    font-weight: 500;
+    font-weight: 400;
     color: #000;
     background-color: #fff;
 }
@@ -118,6 +47,7 @@ body {
 
 .container-header {
     max-width: 1360px;
+    padding: 0 40px;
 }
 
 .container-body {
@@ -130,4 +60,8 @@ body {
 
 .mt32 {
     margin-top: 32px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

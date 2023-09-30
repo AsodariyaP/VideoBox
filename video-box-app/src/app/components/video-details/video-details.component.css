@@ -1,5 +1,4 @@
 /* video details start */
-
 .page-main {
     padding-top: 76px;
 }
@@ -9,15 +8,6 @@
 }
 
 .cursor-pointer {
-    cursor: pointer;
-}
-
-.back-btn {
-    color: #fff;
-    font-family: 'Helvetica Neue';
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
     cursor: pointer;
 }
 
@@ -57,7 +47,7 @@
     color: #fff;
     font-family: 'Helvetica Neue';
     font-size: 16px;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 24px;
 }
 
@@ -80,7 +70,7 @@
     color: #171717;
     font-family: 'Helvetica Neue';
     font-size: 16px;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .video-user {
@@ -111,7 +101,7 @@
     color: #414141;
     font-family: 'Helvetica Neue';
     font-size: 14px;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 22px;
 }
 
@@ -133,7 +123,7 @@
     color: #222;
     font-family: 'Helvetica Neue';
     font-size: 14px;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 22px;
 }
 
@@ -155,8 +145,11 @@
     color: #171717;
     font-family: 'Helvetica Neue';
     font-size: 24px;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .w-73 {
@@ -172,3 +165,31 @@ video {
 }
 
 /* video details end */
+
+
+
+/* Container for the video and icon */
+.video-container {
+    position: relative;
+}
+
+/* Icon styles */
+.star-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    /* Adjust the icon size */
+    color: red;
+    /* Set the color of the icon */
+    opacity: 0;
+    /* Initially hidden */
+    transition: all 5s ease-in-out;
+    /* Animation for fading */
+}
+
+/* Animation when icon is clicked */
+.star-icon.clicked {
+    transform: translateY(-100px);
+    opacity: 0;
+}

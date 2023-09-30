@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-import { StarReaction } from '../models/video.model';
-
-const baseUrl = 'http://localhost:3000';
+const baseUrl = environment.baseUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +28,7 @@ export class VideoService {
     return this.http.get(`${baseUrl}/api/videos/${videoId}/reactions`);
   }
 
-  public starReaction(data: StarReaction): Observable<any> {
+  public reactions(data:any): Observable<any> {
     return this.http.post(`${baseUrl}/api/videos/${data.videoId}/reactions`, data);
   }
 

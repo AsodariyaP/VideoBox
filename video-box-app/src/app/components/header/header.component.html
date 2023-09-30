@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-bs-theme="dark">
+    <div class="container-fluid container-header">
+        <a *ngIf="showLogo" class="navbar-brand" [routerLink]="['/']">
+            <img src="../../../assets/img/logo.svg" alt="logo">
+        </a>
+
+        <div *ngIf="!showLogo" class="back-btn" [routerLink]="['/videos']">
+            <img src="../../../assets/img/back.svg" alt="back">
+            <span class="ms-2">Back</span>
+        </div>
+
+        <!-- user section -->
+        <ul class="navbar-nav ms-auto mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="avatar-pic me-2"><img src="{{userDetails.pictureUrl}}" class="img-fluid" /></div>{{userDetails.name}}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Setting</a></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -2,82 +2,67 @@
     <div class="container-fluid container-body">
         <div class="row mt32 justify-content-center">
             <div class="col-12 col-lg-10 col-xl-8">
+                <!-- video title section -->
                 <div class="row g-3 mb-3">
                     <div *ngIf="!isVideoOwner" class="video-details-title">{{videoDetails.title}}</div>
-                    <div *ngIf="isVideoOwner" class="col"><input type="text" class="input-custom" [(ngModel)]="videoDetails.title"></div>
-                    <div *ngIf="isVideoOwner" class="col-auto"><button type="button" class="button-primary"
-                            (click)="saveVideoTitle(videoDetails.title)">Save</button></div>
+                    <div *ngIf="isVideoOwner" class="col">
+                        <input type="text" class="input-custom" [(ngModel)]="videoDetails.title">
+                    </div>
+                    <div *ngIf="isVideoOwner" class="col-auto">
+                        <button type="button" class="button-primary" (click)="saveVideoTitle(videoDetails.title)">Save</button>
+                    </div>
                 </div>
 
+                <!-- video display section -->
                 <div class="ratio ratio-16x9 mb-3">
-                    <video id="videoId" (timeupdate)="setCurrentTime($event)" src="{{videoDetails.url}}" controls
-                        poster="{{videoDetails.previewUrl}}"></video>
-                    <!-- http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4 -->
+                    <video #video id="videoId" (timeupdate)="getCurrentTime($event)" crossorigin="anonymous"
+                        src="{{videoDetails.url}}" controls poster="{{videoDetails.previewUrl}}"></video>
                 </div>
-
+               
+                <!-- reactions section -->
                 <div class="d-flex justify-content-between align-tems-center flex-wrap mb-4">
                     <div class="d-flex mb-3 mb-md-0">
                         <button type="button" class="button-bordered me-3" (click)="snapshotCapture()">
-                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M6.82513 21.7903C5.0004 21.7903 4 20.7979 4 18.9812V10.5538C4 8.7451 5.0004 7.7447 6.82513 7.7447H8.68187C9.30612 7.7447 9.53021 7.65666 9.95438 7.2485L10.5786 6.62425C11.0268 6.19208 11.459 6 12.2593 6H15.7167C16.517 6 16.9492 6.19208 17.3974 6.62425L18.0216 7.2485C18.4458 7.66467 18.6699 7.7447 19.2861 7.7447H21.1749C22.9996 7.7447 24 8.7451 24 10.5538V18.9812C24 20.7979 22.9996 21.7903 21.1749 21.7903H6.82513ZM14.004 19.0532C16.3569 19.0532 18.2457 17.1565 18.2457 14.7955C18.2457 12.4346 16.3569 10.5458 14.004 10.5458C11.6511 10.5458 9.76231 12.4346 9.76231 14.7955C9.76231 17.1565 11.6511 19.0532 14.004 19.0532ZM18.7259 11.8583C18.7259 12.4906 19.2381 12.9868 19.8543 12.9788C20.4626 12.9788 20.9748 12.4826 20.9748 11.8583C20.9748 11.2581 20.4626 10.7459 19.8543 10.7459C19.2461 10.7459 18.7259 11.2581 18.7259 11.8583ZM14.004 17.2445C12.6595 17.2445 11.563 16.1481 11.563 14.7955C11.563 13.443 12.6515 12.3545 14.004 12.3545C15.3565 12.3545 16.437 13.443 16.437 14.7955C16.437 16.1481 15.3565 17.2445 14.004 17.2445Z"
-                                    fill="#171717" />
-                            </svg>
+                            <img src="../../../assets/img/snapshot-icon.svg" alt="snapshot">
                             Snapshot
                         </button>
-                        <button type="button" class="button-bordered me-3" (click)="starReaction()">
-                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.5 5L16.6329 11.5643H23.535L17.9511 15.6213L20.084 22.1857L14.5 18.1287L8.91604 22.1857L11.0489 15.6213L5.46496 11.5643H12.3671L14.5 5Z"
-                                    fill="#171717" />
-                            </svg>
+                        <button type="button" class="button-bordered me-3" (click)="showReactionIcon()">
+                            <img src="../../../assets/img/star-icon.svg" alt="star">
                             <span class="w-73">Star</span>
                         </button>
                     </div>
                     <div class="d-flex align-items-center">
-                        <div class="video-user me-2"><img src="{{videoDetails.author?.pictureUrl}}" class="img-fluid" />
+                        <div class="video-user me-2">
+                            <img src="{{videoDetails.author?.pictureUrl}}" class="img-fluid" alt="author_img" />
                         </div>
                         <div class="video-user-name">{{videoDetails.author?.name}}</div>
                     </div>
                 </div>
 
+                <!-- reactions list display section -->
                 <div class="reactions-list-part mb-3">
                     <div class="title mb-2">Reactions</div>
-                    <div class="reactions-list mb-3" *ngFor="let reaction of reactions">
-                        <div class="row align-items-center flex-wrap">
-                            <div class="col">
-                                <div class="row flex-wrap">
-                                    <div class="col-6 col-md-auto">
-                                        <svg *ngIf="reaction.type === 'snapshot'" width="28" height="28"
-                                            viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M6.82513 21.7903C5.0004 21.7903 4 20.7979 4 18.9812V10.5538C4 8.7451 5.0004 7.7447 6.82513 7.7447H8.68187C9.30612 7.7447 9.53021 7.65666 9.95438 7.2485L10.5786 6.62425C11.0268 6.19208 11.459 6 12.2593 6H15.7167C16.517 6 16.9492 6.19208 17.3974 6.62425L18.0216 7.2485C18.4458 7.66467 18.6699 7.7447 19.2861 7.7447H21.1749C22.9996 7.7447 24 8.7451 24 10.5538V18.9812C24 20.7979 22.9996 21.7903 21.1749 21.7903H6.82513ZM14.004 19.0532C16.3569 19.0532 18.2457 17.1565 18.2457 14.7955C18.2457 12.4346 16.3569 10.5458 14.004 10.5458C11.6511 10.5458 9.76231 12.4346 9.76231 14.7955C9.76231 17.1565 11.6511 19.0532 14.004 19.0532ZM18.7259 11.8583C18.7259 12.4906 19.2381 12.9868 19.8543 12.9788C20.4626 12.9788 20.9748 12.4826 20.9748 11.8583C20.9748 11.2581 20.4626 10.7459 19.8543 10.7459C19.2461 10.7459 18.7259 11.2581 18.7259 11.8583ZM14.004 17.2445C12.6595 17.2445 11.563 16.1481 11.563 14.7955C11.563 13.443 12.6515 12.3545 14.004 12.3545C15.3565 12.3545 16.437 13.443 16.437 14.7955C16.437 16.1481 15.3565 17.2445 14.004 17.2445Z"
-                                                fill="#8D8D8D" />
-                                        </svg>
-
-                                        <svg *ngIf="reaction.type === 'star'" width="28" height="28" viewBox="0 0 28 28"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M14.5 5L16.6329 11.5643H23.535L17.9511 15.6213L20.084 22.1857L14.5 18.1287L8.91604 22.1857L11.0489 15.6213L5.46496 11.5643H12.3671L14.5 5Z"
-                                                fill="#8D8D8D" />
-                                        </svg>
-                                    </div>
-                                    <div class="col-6 col-md-auto time">{{reaction.timeframe}}</div>
-                                    <div class="col title">
-                                        <span *ngIf="reaction.type === 'snapshot'"
-                                            class="me-2">{{reaction.author?.name}} created a snapshot
-                                            ({{reaction.createdDate | date:'dd/MM/yyyy'}})</span>
-                                        <span *ngIf="reaction.type === 'star'" class="me-2">{{reaction.author?.name}}
-                                            starred the video ({{reaction.postedDate | date:'dd/MM/yyyy'}}) </span>
+                    <div *ngIf="reactions.length > 0">
+                        <div class="reactions-list mb-3" *ngFor="let reaction of reactions">
+                            <div class="row align-items-center flex-wrap" (click)="setReactionTime(reaction)">
+                                <div class="col">
+                                    <div class="row flex-wrap align-items-center">
+                                        <div class="col-6 col-md-auto">
+                                            <img *ngIf="reaction.type === 'snapshot'" src="../../../assets/img/snapshot.svg" alt="snapshot">
+                                            <img *ngIf="reaction.type === 'star'" src="../../../assets/img/star.svg" alt="star">
+                                        </div>
+                                        <div class="col-6 col-md-auto time">{{reaction.timeframe}}</div>
+                                        <div class="col title">
+                                            <span *ngIf="reaction.type === 'snapshot'" class="me-2">{{reaction.author?.name}} created a snapshot ({{reaction.createdDate | date:'dd/MM/yyyy'}})</span>
+                                            <span *ngIf="reaction.type === 'star'" class="me-2">{{reaction.author?.name}} starred the video ({{reaction.postedDate | date:'dd/MM/yyyy'}}) </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-auto" *ngIf="reaction.type === 'snapshot'">
-                                <div class="video">
-                                    <div class="ratio ratio-16x9">
-                                        <img class="img-snapshot" src="{{reaction.imageUrl}}" alt="snapshot">
+                                <div class="col-auto" *ngIf="reaction.type === 'snapshot'">
+                                    <div class="video">
+                                        <div class="ratio ratio-16x9">
+                                            <img class="img-snapshot" src="{{reaction.imageUrl}}" alt="snapshot">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
