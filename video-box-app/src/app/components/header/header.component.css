@@ -1,4 +1,5 @@
 /* Header Start */
+
 .navbar-custom {
     background: #12123D;
     padding: 10px 0;
@@ -20,19 +21,20 @@
 .navbar-custom .nav-link {
     color: #fff;
     font-size: 16px;
-    font-family: 'Helvetica Neue';
-    font-weight: 700;
+    font-family: 'helveticaneuemedium';
+    font-weight: normal;
+    letter-spacing: .5px;
     line-height: 24px;
     word-wrap: break-word
 }
 
 .navbar-custom .nav-link:hover {
     color: #ccc;
-    font-size: 16px;
+    /* font-size: 16px;
     font-family: 'Helvetica Neue';
     font-weight: 700;
     line-height: 24px;
-    word-wrap: break-word
+    word-wrap: break-word */
 }
 
 .navbar-custom .dropdown-toggle::after {
@@ -51,11 +53,16 @@
 
 .back-btn {
     color: #fff;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuemedium';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 16px;
-    font-weight: 500;
     line-height: 24px;
     cursor: pointer;
+}
+
+.ml-16 {
+    margin-left: 16px;
 }
 
 /* Header End */

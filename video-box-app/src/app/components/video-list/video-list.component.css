@@ -36,9 +36,10 @@
 
 .video-grid .video-details .title {
     color: #171717;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuemedium';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 18px;
-    font-weight: 400;
     line-height: 26px;
     white-space: nowrap;
     width: 100%;
@@ -48,9 +49,10 @@
 
 .video-grid .video-details .date {
     color: #8D8D8D;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 14px;
-    font-weight: 400;
     line-height: 22px;
 }
 
@@ -72,9 +74,10 @@
 
 .video-grid .video-details .name {
     color: #8D8D8D;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 14px;
-    font-weight: 400;
     line-height: 22px;
 }
 
@@ -102,9 +105,10 @@
 
 .video-list .video-details .title {
     color: #171717;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuemedium';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 18px;
-    font-weight: 400;
     line-height: 26px;
     white-space: nowrap;
     overflow: hidden;
@@ -113,11 +117,12 @@
 
 .video-list .video-details .date {
     color: #8D8D8D;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 14px;
-    font-weight: 400;
     line-height: 22px;
-    padding-left: 23px;
+    text-align: center;
 }
 
 .video-list .video-details .avatar {

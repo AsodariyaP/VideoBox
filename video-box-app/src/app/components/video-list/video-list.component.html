@@ -18,7 +18,7 @@
 			<!-- video display grid view -->
 			<ng-container *ngIf="selectedView === 'grid' && videos.length > 0">
 				<div class="col-12 col-md-6 col-lg-4" *ngFor="let video of videos">
-					<div class="video-grid mb-3" (click)="goToDetails(video.id)">
+					<div class="video-grid mb-4" (click)="goToDetails(video.id)">
 						<div class="ratio ratio-16x9 cursor-pointer">
 							<img src="{{video.previewUrl}}" alt="preview_img">
 						</div>
@@ -52,9 +52,9 @@
 							<div class="row g-0 mx-0 flex-wrap align-items-center">
 								<div class="col-12 col-md-8 col-lg-9 title mb-2 mb-md-0">{{video.title}}</div>
 								<div class="col-12 col-md-4 col-lg-3 d-flex">
-									<div class="col-auto date">{{video.createdDate | date:'dd/MM/yyyy'}}</div>
-									<div class="col-8">
-										<div class="d-flex align-items-center justify-content-end">
+									<div class="col-6 date">{{video.createdDate | date:'dd/MM/yyyy'}}</div>
+									<div class="col-6">
+										<div class="d-flex align-items-center">
 											<div class="avatar me-2">
 												<img src="{{video.author?.pictureUrl}}" class="img-fluid"
 													alt="author_img" />

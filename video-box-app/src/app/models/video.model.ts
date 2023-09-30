@@ -23,7 +23,7 @@ export class Reactions {
     createdDate?: Date | undefined;
     previewUrl?: string;
     author?: { id?: string, name?: string, pictureUrl?: string };
-    timeframe?: Number;
+    timeframe?: number;
     type?: string;
 }
 

@@ -1,6 +1,6 @@
 <div class="page-main">
     <div class="container-fluid container-body">
-        <div class="row mt32 justify-content-center">
+        <div class="row mt-56 justify-content-center">
             <div class="col-12 col-lg-10 col-xl-8">
                 <!-- video title section -->
                 <div class="row g-3 mb-3">
@@ -26,7 +26,7 @@
                             <img src="../../../assets/img/snapshot-icon.svg" alt="snapshot">
                             Snapshot
                         </button>
-                        <button type="button" class="button-bordered me-3" (click)="showReactionIcon()">
+                        <button type="button" class="button-bordered me-3" (click)="starReaction()">
                             <img src="../../../assets/img/star-icon.svg" alt="star">
                             <span class="w-73">Star</span>
                         </button>
@@ -43,8 +43,8 @@
                 <div class="reactions-list-part mb-3">
                     <div class="title mb-2">Reactions</div>
                     <div *ngIf="reactions.length > 0">
-                        <div class="reactions-list mb-3" *ngFor="let reaction of reactions">
-                            <div class="row align-items-center flex-wrap" (click)="setReactionTime(reaction)">
+                        <div class="reactions-list mb-3" [ngClass]="{'reactions-active': i === selectedIndex}" *ngFor="let reaction of reactions; let i = index">
+                            <div class="row align-items-center flex-wrap" (click)="setReactionTime(reaction, i)">
                                 <div class="col">
                                     <div class="row flex-wrap align-items-center">
                                         <div class="col-6 col-md-auto">
@@ -53,8 +53,8 @@
                                         </div>
                                         <div class="col-6 col-md-auto time">{{reaction.timeframe}}</div>
                                         <div class="col title">
-                                            <span *ngIf="reaction.type === 'snapshot'" class="me-2">{{reaction.author?.name}} created a snapshot ({{reaction.createdDate | date:'dd/MM/yyyy'}})</span>
-                                            <span *ngIf="reaction.type === 'star'" class="me-2">{{reaction.author?.name}} starred the video ({{reaction.postedDate | date:'dd/MM/yyyy'}}) </span>
+                                            <span *ngIf="reaction.type === 'snapshot'" class="me-2">{{reaction.author?.name}} created a snapshot ({{reaction.createdDate | date:'dd/MM/yyyy hh:mm'}})</span>
+                                            <span *ngIf="reaction.type === 'star'" class="me-2">{{reaction.author?.name}} starred the video ({{reaction.postedDate | date:'dd/MM/yyyy hh:mm'}}) </span>
                                         </div>
                                     </div>
                                 </div>

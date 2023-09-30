@@ -1,42 +1,36 @@
 /* You can add global styles to this file, and also import other style files  */
-
 @font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueMedium.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueMedium.woff') format('woff');
-    font-weight: 400;
+    font-family: 'helveticaneuelight';
+    src: url('../src/assets/fonts/helveticaneue_light.woff2') format('woff2'),
+        url('../src/assets/fonts/helveticaneue_light.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueBold.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueBold.woff') format('woff');
-    font-weight: bold;
+    font-family: 'helveticaneuemedium';
+    src: url('../src/assets/fonts/helveticaneue_medium.woff2') format('woff2'),
+        url('../src/assets/fonts/helveticaneue_medium.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../src/assets/fonts/HelveticaNeueRegular.woff2') format('woff2'),
-        url('../src/assets/fonts/HelveticaNeueRegular.woff') format('woff');
-    font-weight: 400;
+    font-family: 'helveticaneuebold';
+    src: url('../src/assets/fonts/helveticaneuebd.woff2') format('woff2'),
+        url('../src/assets/fonts/helveticaneuebd.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 body {
-    /* update 27/9/2023 */
     padding: 0;
     margin: 0;
-    font-family: 'Helvetica Neue';
-    font-weight: 400;
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
     color: #000;
     background-color: #fff;
 }
-
 
 * {
     padding: 0;
@@ -46,16 +40,17 @@ body {
 }
 
 .container-header {
-    max-width: 1360px;
     padding: 0 40px;
+    min-height: 60px;
 }
 
 .container-body {
-    max-width: 1220px;
+    padding-left: 120px;
+    padding-right: 120px;
 }
 
 .page-main {
-    padding-top: 76px;
+    padding-top: 80px;
 }
 
 .mt32 {

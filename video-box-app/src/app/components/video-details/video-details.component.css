@@ -18,9 +18,10 @@
     padding: 0 10px;
     height: 48px;
     color: #171717;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 24px;
-    font-weight: 400;
     width: 100%;
 }
 
@@ -45,9 +46,10 @@
     align-self: stretch;
     border: 0;
     color: #fff;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuebold';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 16px;
-    font-weight: bold;
     line-height: 24px;
 }
 
@@ -68,9 +70,14 @@
     align-items: center;
     gap: 10px;
     color: #171717;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuebold';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 16px;
-    font-weight: bold;
+}
+
+.button-bordered:hover {
+    border: solid 2px #171717;
 }
 
 .video-user {
@@ -91,17 +98,19 @@
 
 .video-user-name {
     color: #8D8D8D;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 14px;
-    font-weight: 400;
     line-height: 22px;
 }
 
 .reactions-list-part .title {
     color: #414141;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuebold';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 14px;
-    font-weight: bold;
     line-height: 22px;
 }
 
@@ -119,19 +128,31 @@
     background: #EFEFEF;
 }
 
+.reactions-active {
+    border-radius: 8px;
+    background: #CFCEE1;
+}
+
+.reactions-active:hover {
+    border-radius: 8px;
+    background: #CFCEE1;
+}
+
 .reactions-list .time {
     color: #222;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 14px;
-    font-weight: bold;
     line-height: 22px;
 }
 
 .reactions-list .title {
     color: #8D8D8D;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 14px;
-    font-weight: 400;
     line-height: 22px;
 }
 
@@ -143,9 +164,10 @@
 
 .video-details-title {
     color: #171717;
-    font-family: 'Helvetica Neue';
+    font-family: 'helveticaneuebold';
+    font-weight: normal;
+    letter-spacing: .5px;
     font-size: 24px;
-    font-weight: bold;
     line-height: 32px;
     white-space: nowrap;
     overflow: hidden;
@@ -162,6 +184,10 @@
 
 video {
     object-fit: fill;
+}
+
+.mt-56 {
+    margin-top: 56px;
 }
 
 /* video details end */
