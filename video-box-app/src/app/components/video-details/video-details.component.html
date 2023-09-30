@@ -53,8 +53,8 @@
                                         </div>
                                         <div class="col-6 col-md-auto time">{{reaction.timeframe}}</div>
                                         <div class="col title">
-                                            <span *ngIf="reaction.type === 'snapshot'" class="me-2">{{reaction.author?.name}} created a snapshot ({{reaction.createdDate | date:'dd/MM/yyyy hh:mm'}})</span>
-                                            <span *ngIf="reaction.type === 'star'" class="me-2">{{reaction.author?.name}} starred the video ({{reaction.postedDate | date:'dd/MM/yyyy hh:mm'}}) </span>
+                                            <span *ngIf="reaction.type === 'snapshot'" class="me-2">{{reaction.author?.name}} created a snapshot ({{reaction.createdDate | date:'dd/MM/yyyy'}})</span>
+                                            <span *ngIf="reaction.type === 'star'" class="me-2">{{reaction.author?.name}} starred the video ({{reaction.postedDate | date:'dd/MM/yyyy'}}) </span>
                                         </div>
                                     </div>
                                 </div>

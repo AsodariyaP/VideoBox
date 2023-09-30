@@ -15,7 +15,7 @@ npm install
 ## Building the Application
 Before you can run the application, you need to build it. Follow these steps to build the application:
 1. Open a terminal/command prompt in the root directory of the cloned Angular project.
-2. Run `ng build --prod` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running the Application Locally
 Now that you've built the application, you can run it locally. Follow these steps:

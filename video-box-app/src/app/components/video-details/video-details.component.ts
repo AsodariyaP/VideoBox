@@ -68,9 +68,7 @@ export class VideoDetailsComponent implements OnInit {
     if (!videoId) { return };
     this.videoService.getReactions(videoId).subscribe({
       next: (res) => {
-        this.reactions = res.sort((a: any, b: any) => {
-          return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
-        });
+        this.reactions = this.sorting(res);
       },
       error: (e) => console.error(e)
     });
@@ -102,9 +100,7 @@ export class VideoDetailsComponent implements OnInit {
 
     this.videoService.reactions(data).subscribe({
       next: (res) => {
-        this.reactions = res.sort((a: any, b: any) => {
-          return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime() || new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime();
-        });
+        this.reactions = this.sorting(res);
       },
       error: (e) => console.error(e)
     });
@@ -120,9 +116,7 @@ export class VideoDetailsComponent implements OnInit {
 
     this.videoService.reactions(data).subscribe({
       next: (res) => {
-        this.reactions = res.sort((a: any, b: any) => {
-          return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime() || new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime();
-        });
+        this.reactions = this.sorting(res);
       },
       error: (e) => console.error(e)
     });
@@ -142,20 +136,12 @@ export class VideoDetailsComponent implements OnInit {
       video.pause();
     }
   }
-  
-  public sorting(data: any) {
-    data.sort((a: any, b: any) => {
-      // First, compare by priority
-      if (a.createdDate < b.createdDate) return -1;
-      if (a.postedDate > b.postedDate) return 1;
 
-      // If priorities are the same, compare by date
-      if (a.date < b.date) return -1;
-      if (a.date > b.date) return 1;
-
-      // If both keys are the same, no change in order
-      return 0;
-    });
+  // Sort the array for reactions 
+  public sorting(data: Array<Reactions>): Array<Reactions> {
+    return data.sort((a: any, b: any) =>
+      (b.createdDate || b.postedDate || '').localeCompare(a.createdDate || a.postedDate || '')
+    );
   }
 
   public showReactionIcon(): void {
