@@ -108,6 +108,10 @@ export class VideoDetailsComponent implements OnInit {
 
   // Give the star reaction on the play/pause video of current timeframe.
   public starReaction(): void {
+
+    // start star animation fn call 
+    this.reactionStarAnimation();
+
     const data: StarReaction = {
       videoId: this.videoId,
       type: ReactionType.star,
@@ -144,18 +148,11 @@ export class VideoDetailsComponent implements OnInit {
     );
   }
 
-  public showReactionIcon(): void {
-    const icon = document.querySelector('.star-icon');
-    icon?.classList.add('clicked');
-
+  // Show Star Animation 
+  public reactionStarAnimation(): void {
+    this.showStarAnimation = true;
     setTimeout(() => {
-      icon?.classList.remove('clicked');
+      this.showStarAnimation = false;
     }, 5000);
-
-
-    // this.showStarAnimation = true;
-    // setTimeout(() => {
-    //   this.showStarAnimation = false;
-    // }, 5000); // Remove the star animation after 3 seconds (adjust as needed)
   }
 }

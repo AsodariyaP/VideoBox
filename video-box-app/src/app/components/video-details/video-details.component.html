@@ -17,8 +17,9 @@
                 <div class="ratio ratio-16x9 mb-3">
                     <video #video id="videoId" (timeupdate)="getCurrentTime($event)" crossorigin="anonymous"
                         src="{{videoDetails.url}}" controls poster="{{videoDetails.previewUrl}}"></video>
+                        <div class="star" *ngIf="showStarAnimation"><img src="../../../assets/img/icon.svg" alt="star"></div>
                 </div>
-               
+
                 <!-- reactions section -->
                 <div class="d-flex justify-content-between align-tems-center flex-wrap mb-4">
                     <div class="d-flex mb-3 mb-md-0">
