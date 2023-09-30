@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Getting Started
 To get started with this project, follow these steps:
 1. Clone the Video Box Server repository and follow the instructions in its README to set up and run the REST API backend.
-2. Clone this repository to your local machine.
+2. Set the Video Box App on your local machine.
 3. Install the required dependencies using npm:
 ```sh
 npm install
