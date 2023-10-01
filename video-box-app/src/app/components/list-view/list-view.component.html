@@ -1,0 +1,27 @@
+<div class="video-list mb-3" *ngFor="let video of videos">
+    <div class="row align-items-center video-details flex-wrap" (click)="goToDetails(video.id)">
+        <div class="col-auto col-md-auto">
+            <div class="video">
+                <div class="ratio ratio-16x9">
+                    <img class="img-preview" src="{{video.previewUrl}}" alt="preview_img">
+                </div>
+            </div>
+        </div>
+        <div class="col-8 col-md">
+            <div class="row g-0 mx-0 flex-wrap align-items-center">
+                <div class="col-12 col-md-8 col-lg-9 title mb-2 mb-md-0">{{video.title}}</div>
+                <div class="col-12 col-md-4 col-lg-3 d-flex">
+                    <div class="col-6 date">{{video.createdDate | date:'dd/MM/yyyy'}}</div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar me-2">
+                                <img src="{{video.author?.pictureUrl}}" class="img-fluid" alt="author_img" />
+                            </div>
+                            <div class="name">{{video.author?.name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

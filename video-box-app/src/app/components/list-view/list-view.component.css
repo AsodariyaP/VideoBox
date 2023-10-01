@@ -1,0 +1,72 @@
+/* video list start */
+.video-list {
+    background: #fff;
+}
+
+.video-list:hover {
+    background: #EFEFEF;
+    border-radius: 8px;
+}
+
+.video-list .video-details {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.video-list .video-details .video {
+    width: 96px;
+    height: 54px;
+}
+
+.video-list .video-details .title {
+    color: #171717;
+    font-family: 'helveticaneuelight';
+    font-weight: bold;
+    letter-spacing: .5px;
+    font-size: 18px;
+    line-height: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.video-list .video-details .date {
+    color: #8D8D8D;
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
+    letter-spacing: .5px;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.video-list .video-details .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    border: solid 1px #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-list .video-details .avatar img {
+    width: 23px;
+    height: 23px;
+    border-radius: 100%;
+}
+
+.video-list .video-details .name {
+    color: #8D8D8D;
+    font-size: 14px;
+    line-height: 22px;
+
+    font-family: 'helveticaneuelight';
+    font-weight: normal;
+}
+
+.img-preview {
+    border-radius: 4px;
+}
+
+/* video list end */

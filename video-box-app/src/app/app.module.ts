@@ -9,6 +9,8 @@ import { VideoListComponent } from './components/video-list/video-list.component
 import { VideoDetailsComponent } from './components/video-details/video-details.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
+import { GridViewComponent } from './components/grid-view/grid-view.component';
+import { ListViewComponent } from './components/list-view/list-view.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HeaderComponent } from './components/header/header.component';
     VideoListComponent,
     VideoDetailsComponent,
     PageNotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    GridViewComponent,
+    ListViewComponent
   ],
   imports: [
     BrowserModule,
